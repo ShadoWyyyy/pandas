@@ -18,14 +18,20 @@ df2 = pd.DataFrame(
         "F": "foo"
     }
 )
-df2.dtypes
-df.head(5)
-df.tail(3)
-df.index
-df.columns
-df.describe()
-df.T
-df.sort_values(by="B")
+
+# Check data type
+print(df2.dtypes)
+# View df
+print(df.head(5))
+print(df.tail(3))
+print(df.index)
+print(df.columns)
+# Statistical summary
+print(df.describe())
+# Transpose
+print(df.T)
+# Arrange by column value
+print(df.sort_values(by="B"))
 
 # information about employees
 id_number = ['128', '478', '257', '299', '175', '328', '099', '457', '144', '222']
@@ -40,32 +46,33 @@ type_contract = ['permanent', 'temporary', 'temporary', 'permanent', 'internship
 df_employees = pd.DataFrame({'name': name, 'surname': surname, 'division': division,
                              'salary': salary, 'telephone': telephone, 'type_contract': type_contract}, index=id_number)
 
-df_employees
+print(df_employees)
 
+# Access by columns
 print(df_employees.salary)
 type(df_employees['salary'])
 type(df_employees[['salary']])
 
-df_employees[['division', 'salary']]
+print(df_employees[['division', 'salary']])
 df_employees.select_dtypes(include=np.number)
 df_employees.info()
-df_employees.dtypes
+print(df_employees.dtypes)
 
-type('123')
-type(['123'])
-
+# Access by rows
 type(df_employees.loc['478'])
-type(df_employees.iloc[[0, 1, 2, 3, 4]])
+type(df_employees.iloc[[1]])
 type(df_employees.iloc[0:5])
 
-df_employees.iat[1, 3]
-df_employees.at['478', 'salary']
+# Access by coordinates
+print(df_employees.iat[1, 3])
+print(df_employees.at['478', 'salary'])
 
-df_employees[df_employees['salary'] > 45000]
-df_employees[(df_employees['salary'] > 45000) & (df_employees['type_contract'] == 'permanent')]
+# filter and select
+print(df_employees[df_employees['salary'] > 45000])
+print(df_employees[(df_employees['salary'] > 45000) & (df_employees['type_contract'] == 'permanent')])
 
-df_employees[df_employees['type_contract'].isin(['temporary', 'permanent'])]
-df_employees[df_employees['salary'].between(30000, 80000)]
-df_employees[df_employees['telephone'].str.contains('57')]
-df_employees[df_employees['name'].str.startswith('A')]
+print(df_employees[df_employees['type_contract'].isin(['temporary', 'permanent'])])
+print(df_employees[df_employees['salary'].between(30000, 80000)])
+print(df_employees[df_employees['telephone'].str.contains('57')])
+print(df_employees[df_employees['name'].str.startswith('A')])
 

@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 
 df = pd.read_csv('/Users/chengjintao/Downloads/novel/indel.annovar.hg38_multianno.txt', delimiter = "\t")
 
